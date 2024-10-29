@@ -1,0 +1,23 @@
+const heartsContainer = document.getElementById('hearts-container');
+
+function createHeart() {
+  // Create a heart element
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+
+  // Set random position and size
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.width = heart.style.height = Math.random() * 20 + 10 + 'px';
+
+  // Add the heart to the container
+  heartsContainer.appendChild(heart);
+
+  // Remove heart after animation ends
+  setTimeout(() => {
+    heart.remove();
+  }, 5000); // Match duration of animation in CSS
+}
+
+// Create hearts at intervals
+setInterval(createHeart, 300); // Create a new heart every 300 ms
+
